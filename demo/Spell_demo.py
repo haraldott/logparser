@@ -3,9 +3,15 @@ import sys
 sys.path.append('../')
 from logparser import Spell
 
-input_dir  = '../logs/HDFS/'  # The input directory of log file
+long_file = True
+
+if not long_file:
+    input_dir  = '../logs/HDFS/'  # The input directory of log file
+    log_file = 'HDFS_2k.log'  # The input log file name
+else:
+    input_dir  = '~'  # The input directory of log file
+    log_file = 'sorted.log'  # The input log file name
 output_dir = 'Spell_result/'  # The output directory of parsing results
-log_file   = 'HDFS_2k.log'  # The input log file name
 log_format = '<Date> <Time> <Pid> <Level> <Component>: <Content>'  # HDFS log format
 tau        = 0.5  # Message type threshold (default: 0.5)
 regex      = []  # Regular expression list for optional preprocessing (default: [])
