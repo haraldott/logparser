@@ -3,7 +3,14 @@ import sys
 sys.path.append('../')
 from logparser.logmatch import regexmatch
 
-input_dir    = '../logs/HDFS/' # The input directory
+long_file = True
+
+if not long_file:
+    input_dir  = '../logs/HDFS/'  # The input directory of log file
+    log_file = 'HDFS_2k.log'  # The input log file name
+else:
+    input_dir  = '/Users/haraldott/Development/thesis/anomaly_detection_main/data/hdfs/sosp/'  # The input directory of log file
+    log_file = 'sorted_half.log'  # The input log file name
 output_dir   = 'logmatch_result/' # The result directory
 log_filepath = input_dir + 'HDFS_2k.log' # The input log file path
 log_format   = '<Date> <Time> <Pid> <Level> <Component>: <Content>' # HDFS log format

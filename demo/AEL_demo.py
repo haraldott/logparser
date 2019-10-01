@@ -3,9 +3,15 @@ import sys
 sys.path.append('../')
 from logparser import AEL
 
-input_dir     = '../logs/HDFS/' # The input directory of log file
+long_file = True
+
+if not long_file:
+    input_dir  = '../logs/HDFS/'  # The input directory of log file
+    log_file = 'HDFS_2k.log'  # The input log file name
+else:
+    input_dir  = '/Users/haraldott/Development/thesis/anomaly_detection_main/data/hdfs/sosp/'  # The input directory of log file
+    log_file = 'sorted_half.log'  # The input log file name
 output_dir    = 'AEL_result/' # The output directory of parsing results
-log_file      = 'HDFS_2k.log' # The input log file name
 log_format    = '<Date> <Time> <Pid> <Level> <Component>: <Content>' # HDFS log format
 minEventCount = 2 # The minimum number of events in a bin
 merge_percent = 0.5 # The percentage of different tokens 
